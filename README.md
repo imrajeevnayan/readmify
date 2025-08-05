@@ -2,6 +2,13 @@
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![GitHub stars](https://img.shields.io/github/stars/imrajeevnayan/readmify?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/imrajeevnayan/readmify?style=for-the-badge)
 
+
+## 🔗 Live Demo
+
+Try out the live application here:  
+➡️ [https://imrajeevnayan.github.io/readmify/](https://imrajeevnayan.github.io/readmify/)
+
+
 readmify is an AI-powered README generator designed to help developers create polished and informative README.md files for their GitHub projects. Whether you're launching a new open-source library, building a portfolio project, or need consistent documentation for your repos, this tool uses AI to streamline the process and improve quality.
 
 ## ✨ Features
