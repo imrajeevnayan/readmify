@@ -1,9 +1,23 @@
-# readmify
+<div align="center">
 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![GitHub stars](https://img.shields.io/github/stars/imrajeevnayan/readmify?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/imrajeevnayan/readmify?style=for-the-badge)
+# 🚀 Readmify
 
+### Your AI-Powered README Generator
 
-## 🔗 Live Demo
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
+[![GitHub stars](https://img.shields.io/github/stars/imrajeevnayan/readmify?style=for-the-badge)](https://github.com/imrajeevnayan/readmify/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/imrajeevnayan/readmify?style=for-the-badge)](https://github.com/imrajeevnayan/readmify/network/members)
+
+<p align="center">
+  <strong>Transform your project documentation with the power of AI ✨</strong>
+</p>
+
+[Live Demo](#) • [Documentation](#) • [Report Bug](../../issues) • [Request Feature](../../issues)
+
+---
+
+## ⚡ Live Demo
 
 Try out the live application here:  
 ➡️ [https://imrajeevnayan.github.io/readmify/](https://imrajeevnayan.github.io/readmify/)
@@ -74,15 +88,27 @@ Visit `http://localhost:3000` to view the application.
 
 ## 📁 Project Structure
 
-```
+```bash
 readmify/
-├── README.md
-├── package.json
-├── src/
-│   ├── index.ts
-│   └── components/
-├── public/
-└── dist/
+├── 📄 README.md
+├── 📦 package.json
+├── 🗂️ src/
+│   ├── 📱 components/
+│   │   ├── Dashboard.tsx
+│   │   ├── GeneratorForm.tsx
+│   │   ├── Header.tsx
+│   │   └── Hero.tsx
+│   ├── 🔄 contexts/
+│   │   └── ProjectContext.tsx
+│   ├── 🛠️ utils/
+│   │   ├── dateUtils.ts
+│   │   ├── githubAnalyzer.ts
+│   │   └── readmeGenerator.ts
+│   └── 🎯 main.tsx
+└── 🏗️ config files
+    ├── vite.config.ts
+    ├── tsconfig.json
+    └── tailwind.config.js
 ```
 
 ## 🛠️ Built With
