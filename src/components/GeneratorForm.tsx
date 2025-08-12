@@ -3,7 +3,7 @@ import { ArrowLeft, Sparkles, Eye, Download, Copy, Check, Github, AlertCircle } 
 import { Page } from '../App';
 import { useProjects } from '../contexts/ProjectContext';
 import { analyzeGitHubRepo } from '../utils/githubAnalyzer';
-import { generateReadmeFromRepo } from '../utils/readmeGenerator';
+import { generateReadmeFromRepo, getReadmeSuggestions, exportReadmeAsHtml, exportReadmeAsText } from '../utils/readmeGenerator';
 
 interface GeneratorFormProps {
   onNavigate: (page: Page) => void;
@@ -17,6 +17,45 @@ export const GeneratorForm: React.FC<GeneratorFormProps> = ({ onNavigate }) => {
   const [showPreview, setShowPreview] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState<string>('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  const handleShowSuggestions = async () => {
+    if (!generatedReadme) return;
+    try {
+      setSuggestions(getReadmeSuggestions({}));
+      setShowSuggestions(true);
+    } catch (err) {
+      setSuggestions(['Failed to generate suggestions.']);
+      setShowSuggestions(true);
+    }
+  };
+
+  const handleExportHtml = () => {
+    const html = exportReadmeAsHtml(generatedReadme);
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'README.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportText = () => {
+    const text = exportReadmeAsText(generatedReadme);
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'README.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   const handleAnalyze = async () => {
     if (!repoUrl) {
@@ -201,11 +240,44 @@ export const GeneratorForm: React.FC<GeneratorFormProps> = ({ onNavigate }) => {
                 >
                   <Download className="h-4 w-4" />
                 </button>
+                <button
+                  onClick={handleExportHtml}
+                  className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 hover:from-yellow-400/30 hover:to-orange-500/30 text-yellow-400 rounded-lg transition-colors border border-yellow-400/30"
+                  title="Export as HTML"
+                >
+                  HTML
+                </button>
+                <button
+                  onClick={handleExportText}
+                  className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-gray-400/20 to-gray-600/20 hover:from-gray-400/30 hover:to-gray-600/30 text-gray-300 rounded-lg transition-colors border border-gray-400/30"
+                  title="Export as Text"
+                >
+                  Text
+                </button>
+                <button
+                  onClick={handleShowSuggestions}
+                  className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-pink-500/20 to-purple-500/20 hover:from-pink-500/30 hover:to-purple-500/30 text-pink-300 rounded-lg transition-colors border border-pink-400/30"
+                  title="Show AI Suggestions"
+                >
+                  <Sparkles className="h-4 w-4" />
+                  Suggestions
+                </button>
               </div>
             )}
           </div>
-          
           <div className="p-6">
+            {/* AI Suggestions Modal/Section */}
+            {showSuggestions && (
+              <div className="bg-slate-900/80 border border-pink-400/30 rounded-lg p-4 mb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-pink-300 font-semibold">AI Suggestions</span>
+                  <button onClick={() => setShowSuggestions(false)} className="text-gray-400 hover:text-white text-xs">Close</button>
+                </div>
+                <ul className="list-disc pl-5 text-pink-200 text-sm space-y-1">
+                  {suggestions.length > 0 ? suggestions.map((s, i) => <li key={i}>{s}</li>) : <li>No suggestions found.</li>}
+                </ul>
+              </div>
+            )}
             {generatedReadme ? (
               <div className="space-y-4">
                 <div className="bg-slate-900/50 rounded-lg p-4 border border-slate-700/30">

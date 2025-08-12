@@ -1,3 +1,38 @@
+// --- AI-Powered Suggestions ---
+/**
+ * Returns an array of suggestions to improve the README based on repo data.
+ * This is a stub; you can connect to an AI API for smarter suggestions.
+ */
+export function getReadmeSuggestions(repoData: any): string[] {
+  const suggestions: string[] = [];
+  if (!repoData.screenshots || repoData.screenshots.length === 0) {
+    suggestions.push('Consider adding screenshots or demo GIFs to showcase your project.');
+  }
+  if (!repoData.license) {
+    suggestions.push('Add a license section to clarify usage rights.');
+  }
+  if (!repoData.hasTests) {
+    suggestions.push('Add tests to improve code reliability and quality.');
+  }
+  // Add more rules or connect to an AI API here
+  return suggestions;
+}
+
+// --- Export Options ---
+/**
+ * Export README markdown as HTML (basic conversion; for production use a markdown-to-html library)
+ */
+export function exportReadmeAsHtml(markdown: string): string {
+  return `<html><body><pre>${markdown.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre></body></html>`;
+}
+
+/**
+ * Export README as plain text (strips markdown formatting)
+ */
+export function exportReadmeAsText(markdown: string): string {
+  // Very basic: strip #, *, `, >, -, etc. For production use a markdown-to-text library
+  return markdown.replace(/[#*_`>\-]/g, '').replace(/\n{2,}/g, '\n');
+}
 import { GitHubRepoData } from './githubAnalyzer';
 
 export const generateReadmeFromRepo = (repoData: GitHubRepoData): string => {
