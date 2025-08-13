@@ -1,29 +1,12 @@
-<div align="center">
+# readmify
 
-# 🚀 Readmify
-
-### Your AI-Powered README Generator
-
-[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
-[![GitHub stars](https://img.shields.io/github/stars/imrajeevnayan/readmify?style=for-the-badge)](https://github.com/imrajeevnayan/readmify/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/imrajeevnayan/readmify?style=for-the-badge)](https://github.com/imrajeevnayan/readmify/network/members)
-
-<p align="center">
-  <strong>Transform your project documentation with the power of AI ✨</strong>
-</p>
-
-[Live Demo](#) • [Documentation](#) • [Report Bug](../../issues) • [Request Feature](../../issues)
-
----
-
-## ⚡ Live Demo
-
-Try out the live application here:  
-➡️ [https://imrajeevnayan.github.io/readmify/](https://imrajeevnayan.github.io/readmify/)
-
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![GitHub stars](https://img.shields.io/github/stars/imrajeevnayan/readmify?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/imrajeevnayan/readmify?style=for-the-badge)
 
 readmify is an AI-powered README generator designed to help developers create polished and informative README.md files for their GitHub projects. Whether you're launching a new open-source library, building a portfolio project, or need consistent documentation for your repos, this tool uses AI to streamline the process and improve quality.
+
+## 🏷️ Topics
+
+`readme` `readme-card` `readme-generator` `readme-profile` `readme-stats`
 
 ## ✨ Features
 
@@ -88,27 +71,15 @@ Visit `http://localhost:3000` to view the application.
 
 ## 📁 Project Structure
 
-```bash
+```
 readmify/
-├── 📄 README.md
-├── 📦 package.json
-├── 🗂️ src/
-│   ├── 📱 components/
-│   │   ├── Dashboard.tsx
-│   │   ├── GeneratorForm.tsx
-│   │   ├── Header.tsx
-│   │   └── Hero.tsx
-│   ├── 🔄 contexts/
-│   │   └── ProjectContext.tsx
-│   ├── 🛠️ utils/
-│   │   ├── dateUtils.ts
-│   │   ├── githubAnalyzer.ts
-│   │   └── readmeGenerator.ts
-│   └── 🎯 main.tsx
-└── 🏗️ config files
-    ├── vite.config.ts
-    ├── tsconfig.json
-    └── tailwind.config.js
+├── README.md
+├── package.json
+├── src/
+│   ├── index.ts
+│   └── components/
+├── public/
+└── dist/
 ```
 
 ## 🛠️ Built With
@@ -175,3 +146,4 @@ This project is open source. Please check the repository for license information
 
 ⭐️ If you found this project helpful, please give it a star!
 
+🌐 **Live Demo**: [https://imrajeevnayan.github.io/readmify/](https://imrajeevnayan.github.io/readmify/)
